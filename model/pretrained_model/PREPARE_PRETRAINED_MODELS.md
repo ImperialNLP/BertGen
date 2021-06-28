@@ -4,10 +4,7 @@ Download pre-trained models and organize them as following:
 code_root/
 └── model/
     └── pretrained_model/
-        ├── vl-bert-base-e2e.model
-        ├── vl-bert-large-e2e.model
         ├── vl-bert-base-prec.model
-        ├── vl-bert-large-prec.model
         ├── bert-base-multilingual-cased/
         │   ├── vocab.txt
         │   ├── bert_config.json
@@ -18,17 +15,13 @@ code_root/
 
 ## VL-BERT
 
-Our BERTGEN implementation only uses the vl-bert-base-prec model. You can experiment with the other VL-BERT variants.
+Our BERTGEN implementation only uses the vl-bert-base-prec model. 
 
 | Model Name         | Download Link    |
 | ------------------ | ---------------  |
-| vl-bert-base-e2e   | [GoogleDrive](https://drive.google.com/file/d/1jjV1ARYMs37tOaBalhJmwq7LcWeMai96/view?usp=sharing) / [BaiduPan](https://pan.baidu.com/s/1rl0Hl-iZZHL-3fj8hE_Uug) |
-| vl-bert-large-e2e  | [GoogleDrive](https://drive.google.com/file/d/1YTHWWyP7Kq6zPySoEcTs3STaQdc5OJ7f/view?usp=sharing) / [BaiduPan](https://pan.baidu.com/s/1yqpDZRuGLsRXpklDgSC_Jw) |
 | vl-bert-base-prec  | [GoogleDrive](https://drive.google.com/file/d/1YBFsyoWwz83VPzbimKymSBxE37gYtfgh/view?usp=sharing) / [BaiduPan](https://pan.baidu.com/s/1SvGbE2cjw8jEGWwSfJBFQQ) |
-| vl-bert-large-prec | [GoogleDrive](https://drive.google.com/file/d/1REZLN7c3JCHVFoi_nEO-Nn6A4PTKIygG/view?usp=sharing) / [BaiduPan](https://pan.baidu.com/s/1k4eQe2rGGGVD24ZksJteNA) |
 
-***Note***: models with suffix "e2e" means parameters of Fast-RCNN is tuned during pre-training, 
-while "prec" means Fast-RCNN is fixed during pre-training and for effeciency the visual features is precomputed using
+***Note***: the suffix "prec" means Fast-RCNN is fixed during pre-training and for effeciency the visual features is precomputed using
 [bottom-up-attention](https://github.com/peteanderson80/bottom-up-attention). 
 
 ## BERT & ResNet
