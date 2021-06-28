@@ -141,5 +141,5 @@ Many thanks to following codebases that have been essential while building this 
 * [M-BERT](https://github.com/google-research/bert/blob/master/multilingual.md)
 * [transformers (pytorch-pretrained-bert)](https://github.com/huggingface/transformers) 
 * [bottom-up-attention](https://github.com/peteanderson80/bottom-up-attention)
-* [nmtpy](https://github.com/lium-lst/nmtpytorch)
+* [nmtpytorch](https://github.com/lium-lst/nmtpytorch)
 
