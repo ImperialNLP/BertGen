@@ -10,7 +10,7 @@ BERTGEN extends the VL-BERT model by making it multilingual, inheriting multilin
 
  BERTGEN takes advantage of large-scale training of VL-BERT and M-BERT but is also further trained, in a generative setting as described in the paper.
 
-<img src="./figs/BERTGEN.png" alt="drawing" width="450"/>
+<img src="./figs/BERTGEN.jpg" alt="drawing" width="450"/>
 
 **Figure 1:** Overview of the BERTGEN architecture
 
