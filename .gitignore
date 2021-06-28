@@ -152,6 +152,7 @@ model/pretrained_model/*
 data/flickr30k/*
 !data/flickr30k/utils
 !data/flickr30k/README.md
+!data/flickr30k/PREPARE_DATA.md
 !data/flickr30k/split_flickr.sh
 !data/flickr30k/*.json
 !data/flickr30k/*.cs
