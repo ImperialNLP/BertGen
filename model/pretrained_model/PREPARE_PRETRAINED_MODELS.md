@@ -15,7 +15,7 @@ code_root/
 
 ## VL-BERT
 
-Our BERTGEN implementation only uses the vl-bert-base-prec model. 
+Our BERTGEN implementation uses the vl-bert-base-prec model. 
 
 | Model Name         | Download Link    |
 | ------------------ | ---------------  |
