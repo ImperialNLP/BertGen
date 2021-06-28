@@ -141,9 +141,9 @@ model/*
 output
 cache
 
-!pretrain/data/*
 !data/zip_helper.py
 !data/README.md
+!data/PREPARE_DATA.md
 !model/pretrained_model
 model/pretrained_model/*
 !model/pretrained_model/PREPARE_PRETRAINED_MODELS.md
@@ -152,17 +152,11 @@ model/pretrained_model/*
 data/flickr30k/*
 !data/flickr30k/utils
 !data/flickr30k/README.md
-!data/flickr30k/PREPARE_DATA.md
 !data/flickr30k/split_flickr.sh
 !data/flickr30k/*.json
 !data/flickr30k/*.cs
 !data/flickr30k/*.fr
 !data/flickr30k/*.en
 !data/flickr30k/*.de
-
-!data/WMT14
-data/WMT14/*
-!data/WMT14/utils
-!data/WMT14/README.md
 
 
