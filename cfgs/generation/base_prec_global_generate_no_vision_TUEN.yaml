@@ -15,7 +15,7 @@ SCALES:
 DATASET:
   DATASET: multi30k_no_vision
   APPEND_INDEX: false
-  DATASET_PATH: "/data/ozan/datasets/mmbert/setimes_en_tr"
+  DATASET_PATH: "./data/setimes_en_tr"
   ROOT_PATH: "./"
   TRAIN_IMAGE_SET: "train_tu"
   VAL_IMAGE_SET: "val_tu"

@@ -15,7 +15,7 @@ SCALES:
 DATASET:
   DATASET: multi30k_image_only_COCO
   APPEND_INDEX: false
-  DATASET_PATH: "/data/ozan/datasets/mmbert/coco_en"
+  DATASET_PATH: "./data/coco_en"
   ROOT_PATH: "./"
   TRAIN_IMAGE_SET: "train_tr"
   VAL_IMAGE_SET: "val_tr"

@@ -15,7 +15,7 @@ SCALES:
 DATASET:
   DATASET: multi30k_image_only
   APPEND_INDEX: false
-  DATASET_PATH: "/data/ozan/datasets/mmbert/multi30k_en_fr"
+  DATASET_PATH: "./data/multi30k_en_fr"
   ROOT_PATH: "./"
   TRAIN_IMAGE_SET: "train"
   VAL_IMAGE_SET: "val"

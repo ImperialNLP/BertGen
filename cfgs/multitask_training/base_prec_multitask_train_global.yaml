@@ -15,7 +15,7 @@ SCALES:
 DATASET:
   - DATASET: multi30k
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/multi30k_en_de"
+    DATASET_PATH: "./data/multi30k_en_de"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -30,7 +30,7 @@ DATASET:
 
   - DATASET: multi30k_no_vision
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/iwslt14_en_de"
+    DATASET_PATH: "./data/iwslt14_en_de"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -46,7 +46,7 @@ DATASET:
 
   - DATASET: multi30k_image_only
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/flickr30k_de"
+    DATASET_PATH: "./data/flickr30k_de"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -61,7 +61,7 @@ DATASET:
 
   - DATASET: multi30k
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/multi30k_en_de"
+    DATASET_PATH: "./data/multi30k_en_de"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -76,7 +76,7 @@ DATASET:
 
   - DATASET: multi30k_no_vision
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/iwslt14_en_de"
+    DATASET_PATH: "./data/iwslt14_en_de"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -92,7 +92,7 @@ DATASET:
 
   - DATASET: multi30k_image_only
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/flickr30k_en"
+    DATASET_PATH: "./data/flickr30k_en"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -107,7 +107,7 @@ DATASET:
 
   - DATASET: multi30k
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/multi30k_en_fr"
+    DATASET_PATH: "./data/multi30k_en_fr"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -122,7 +122,7 @@ DATASET:
 
   - DATASET: multi30k_no_vision
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/iwslt14_en_fr"
+    DATASET_PATH: "./data/iwslt14_en_fr"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -138,7 +138,7 @@ DATASET:
 
   - DATASET: multi30k
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/multi30k_en_fr"
+    DATASET_PATH: "./data/multi30k_en_fr"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -153,7 +153,7 @@ DATASET:
 
   - DATASET: multi30k_no_vision
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/iwslt14_en_fr"
+    DATASET_PATH: "./data/iwslt14_en_fr"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -169,7 +169,7 @@ DATASET:
 
   - DATASET: multi30k_no_vision
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/setimes_en_tr"
+    DATASET_PATH: "./data/setimes_en_tr"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -185,7 +185,7 @@ DATASET:
 
   - DATASET: multi30k_no_vision
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/setimes_en_tr"
+    DATASET_PATH: "./data/setimes_en_tr"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"
@@ -201,7 +201,7 @@ DATASET:
 
   - DATASET: multi30k_image_only
     APPEND_INDEX: false
-    DATASET_PATH: "/data/ozan/datasets/mmbert/flickr8k_tr"
+    DATASET_PATH: "./data/flickr8k_tr"
     ROOT_PATH: "./"
     TRAIN_IMAGE_SET: "train"
     VAL_IMAGE_SET: "val"

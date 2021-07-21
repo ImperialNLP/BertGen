@@ -15,7 +15,7 @@ SCALES:
 DATASET:
   DATASET: multi30k_no_vision
   APPEND_INDEX: false
-  DATASET_PATH: "/data/ozan/datasets/mmbert/wmt19_de_fr"
+  DATASET_PATH: "./data/wmt19_de_fr"
   ROOT_PATH: "./"
   TRAIN_IMAGE_SET: "train_fr"
   VAL_IMAGE_SET: "val_fr"

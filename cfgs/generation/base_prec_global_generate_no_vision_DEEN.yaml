@@ -15,7 +15,7 @@ SCALES:
 DATASET:
   DATASET: multi30k_no_vision
   APPEND_INDEX: false
-  DATASET_PATH: "/data/ozan/datasets/mmbert/iwslt14_en_de"
+  DATASET_PATH: "./data/iwslt14_en_de"
   ROOT_PATH: "./"
   TRAIN_IMAGE_SET: "train"
   VAL_IMAGE_SET: "val"

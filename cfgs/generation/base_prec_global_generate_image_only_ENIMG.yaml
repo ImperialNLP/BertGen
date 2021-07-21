@@ -15,7 +15,7 @@ SCALES:
 DATASET:
   DATASET: multi30k_image_only
   APPEND_INDEX: false
-  DATASET_PATH: "/data/ozan/datasets/mmbert/flickr30k_en"
+  DATASET_PATH: "./data/flickr30k_en"
   ROOT_PATH: "./"
   TRAIN_IMAGE_SET: "train"
   VAL_IMAGE_SET: "val"
