@@ -215,7 +215,7 @@ DATASET:
     LANG: "second"
 
 NETWORK:
-  PARTIAL_PRETRAIN: "/data/faidon/VL-BERT/checkpoints/output/pretrain/vl-bert/base_prec_16x16G_fp16_LR6_fine_tune_global_lorikeet_single_phase_LONG/train_train/vl-bert_base_res101_pretrain_multitask-0019.model"
+  PARTIAL_PRETRAIN: "./checkpoints/output/pretrain/vl-bert/base_prec_16x16G_fp16_LR6_fine_tune_global_lorikeet_single_phase_LONG/train_train/vl-bert_base_res101_pretrain_multitask-0019.model"
   PARTIAL_PRETRAIN_PREFIX_CHANGES: []
   INITIALISATION: ""
   IMAGE_NUM_LAYERS: 101

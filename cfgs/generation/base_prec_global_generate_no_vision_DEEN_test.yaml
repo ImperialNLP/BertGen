@@ -15,7 +15,7 @@ SCALES:
 DATASET:
   DATASET: multi30k_no_vision
   APPEND_INDEX: false
-  DATASET_PATH: "/data/faidon/VL-BERT/data/testing"
+  DATASET_PATH: "./data/testing"
   ROOT_PATH: "./"
   TRAIN_IMAGE_SET: "train"
   VAL_IMAGE_SET: "val"
@@ -30,7 +30,7 @@ DATASET:
   LANG: "first"
 
 NETWORK:
-  PARTIAL_PRETRAIN: "/data/faidon/VL-BERT/checkpoints/output/pretrain/pretrain_global/PREGLOBAL002_LR6_with_turkish/train_train/vl-bert_base_res101_pretrain_multitask-0019.model"
+  PARTIAL_PRETRAIN: "./checkpoints/output/pretrain/pretrain_global/PREGLOBAL002_LR6_with_turkish/train_train/vl-bert_base_res101_pretrain_multitask-0019.model"
   PARTIAL_PRETRAIN_PREFIX_CHANGES: []
   INITIALISATION: ""
   IMAGE_NUM_LAYERS: 101
