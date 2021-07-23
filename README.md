@@ -16,7 +16,6 @@ BERTGEN extends the VL-BERT model by making it multilingual, inheriting multilin
 
 Special thanks to VL-BERT, PyTorch and its 3rd-party libraries and BERT. This codebase also uses the following features inherited from VL-BERT:
 * Distributed Training
-* FP16 Mixed-Precision Training
 * Various Optimizers and Learning Rate Schedulers
 * Gradient Accumulation
 * Monitoring the Training Using TensorboardX

@@ -12,10 +12,6 @@ import unidecode
 
 import sys
 
-# model = "test001_EN_DE"
-# filepath = "/experiments/faidon/test/VL-BERT/checkpoints/test_001_start_taskA_epoch001_MT_test2015.json"
-# model = "test001_EN_FR"
-# filepath = "/experiments/faidon/test/VL-BERT/checkpoints/test_001_start_taskA_epoch001_EN-FR_MT_test_fr.json"
 model = sys.argv[1]
 filepath = sys.argv[2]
 lang = sys.argv[3]
