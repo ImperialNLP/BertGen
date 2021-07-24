@@ -87,17 +87,3 @@ class MVRCAccuracy(EvalMetric):
                 #to logits(#relevant_RoI, #classes)
                 self.sum_metric += float((logits[keep].argmax(dim=1) == label[keep].argmax(dim=1)).sum().item())
                 self.num_inst += keep.sum().item()
-
-
-# FM edit: 
-class MLTAccuracy(EvalMetric):
-    def __init__(self, allreduce=False, num_replicas=1):
-        super(MLTAccuracy, self).__init__('MLTAcc', allreduce, num_replicas)
-
-    def update(self, outputs):
-        with torch.no_grad():
-            logits = outputs['MLT_logits']
-            label = outputs['MLT_label']
-            # FM edit: change to deal with sigmoid, single output
-            self.sum_metric += float((logits.argmax(dim=1) == label).sum().item())
-            self.num_inst += logits.shape[0]
