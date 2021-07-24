@@ -37,5 +37,6 @@ Download following pre-trained BERT and ResNet and place them under this folder.
 ## BertGen
 
 Downloaded the trained BertGen model from the links below:
+
 * BertGen: 
 * BertGen vocabulary: 
