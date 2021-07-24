@@ -40,8 +40,6 @@ class BERTGENMultitaskTraining(Module):
         # Can specify pre-trained model or use the downloaded pretrained model specific in .yaml file
         language_pretrained_model_path = None
         if config.NETWORK.BERT_PRETRAINED != '':
-            # language_pretrained_model_path = '{}-{:04d}.model'.format(config.NETWORK.BERT_PRETRAINED,
-            #                                                           config.NETWORK.BERT_PRETRAINED_EPOCH)
             # FM edit: just use path of pretrained model
             language_pretrained_model_path = config.NETWORK.BERT_PRETRAINED
         elif os.path.isdir(config.NETWORK.BERT_MODEL_NAME):
@@ -111,19 +109,8 @@ class BERTGENMultitaskTraining(Module):
 
     def forward(self,
                 *args):
-                # image,
-                # boxes,
-                # im_info,
-                # text,
-                # relationship_label,
-                # mlm_labels,
-                # mvrc_ops,
-                # mvrc_labels,
-                # *aux):
 
-        # concat aux texts from different dataset
-        # assert len(args) % 8 == 0
-        # num_datasets = int(len(args)/8)
+
         num_datasets = self.num_datasets
         image_list = []
         boxes_list = []
@@ -239,9 +226,7 @@ class BERTGENMultitaskTraining(Module):
                     boxes_list[vis_i].new_zeros(
                         (boxes_list[vis_i].shape[0], boxes_list[vis_i].shape[1])).long()
                 ))
-                if self.config.NETWORK.WITH_MVRC_LOSS:
-                    object_linguistic_embeddings_list[vis_i][mvrc_ops_list[vis_i]
-                                                             == 1] = self.object_mask_word_embedding.weight[0]
+
                 object_vl_embeddings_list.append(torch.cat(
                     (obj_reps_list[vis_i]['obj_reps'], object_linguistic_embeddings_list[vis_i]), -1))
 
@@ -258,10 +243,6 @@ class BERTGENMultitaskTraining(Module):
                     (total_examples, max_global_len))
 
             # Concatenates the sub-batches from all dataloaders
-            # print("*************")
-            # print("list shape: ", text_list[i].shape)
-            # print("text_input_ids_multi[cur_start:cur_stop, :text_list[i].shape[1]] shape: ", text_input_ids_multi[cur_start:cur_stop, :text_list[i].shape[1]].shape)
-            # print("text_list[i] shape: ", text_list[i].shape)
             text_input_ids_multi[cur_start:cur_stop,
                                  :text_list[i].shape[1]] = text_list[i]
             if has_visual[i]:
@@ -284,30 +265,12 @@ class BERTGENMultitaskTraining(Module):
 
         ###########################################
 
-        # # Visual Linguistic BERT
-        # print('text input shape: ', text)
-        # print( 'text_input_ids_multi shape: ', text_input_ids_multi.shape)
-        # print( 'text_token_type_ids_multi shape: ', text_token_type_ids_multi.shape)
-        # print( 'text_visual_embeddings_multi shape: ', text_visual_embeddings_multi.shape)
-        # print( 'text_mask_multi shape: ', text_mask_multi.shape)
-        # print( 'object_vl_embeddings_multi shape: ', object_vl_embeddings_multi.shape)
-        # print( 'box_mask_multi shape: ', box_mask_multi.shape)
-
-        # print ('text_mask_multi: ', text_mask_multi)
-        # print ('box_mask_multi: ', box_mask_multi)
-
-        # exit()
-
         relationship_logits_multi, mlm_logits_multi, mvrc_logits_multi = self.vlbert(text_input_ids_multi,
                                                                                      text_token_type_ids_multi,
                                                                                      text_visual_embeddings_multi,
                                                                                      text_mask_multi,
                                                                                      object_vl_embeddings_multi,
                                                                                      box_mask_multi)
-
-        # print('Logits: ')
-        # print('logits shape: ', mlm_logits_multi.shape)
-        # exit()
 
         ###########################################
         ###########################################
@@ -367,20 +330,6 @@ class BERTGENMultitaskTraining(Module):
             # # calculate total loss
 
         outputs.update(outputs_dict)
-        # outputs.update({
-        #     'relationship_logits': relationship_logits if self.config.NETWORK.WITH_REL_LOSS else None,
-        #     'relationship_label': relationship_label if self.config.NETWORK.WITH_REL_LOSS else None,
-        #     'mlm_logits_wvc': mlm_logits_wvc if self.config.NETWORK.WITH_MLM_LOSS else None,
-        #     'mlm_label_wvc': mlm_labels_wvc if self.config.NETWORK.WITH_MLM_LOSS else None,
-        #     'mlm_logits_aux': mlm_logits_aux if self.config.NETWORK.WITH_MLM_LOSS else None,
-        #     'mlm_label_aux': mlm_labels_aux if self.config.NETWORK.WITH_MLM_LOSS else None,
-        #     'mvrc_logits': mvrc_logits if self.config.NETWORK.WITH_MVRC_LOSS else None,
-        #     'mvrc_label': mvrc_labels if self.config.NETWORK.WITH_MVRC_LOSS else None,
-        #     'relationship_loss': relationship_loss,
-        #     'mlm_loss_wvc': mlm_loss_wvc,
-        #     'mlm_loss_aux': mlm_loss_aux,
-        #     'mvrc_loss': mvrc_loss,
-        # })
 
         loss = mlm_loss.mean()
 

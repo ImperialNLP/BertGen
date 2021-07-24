@@ -140,11 +140,7 @@ class BERTGENGenerateMT(Module):
         generated = []
         stop = [False]*text.shape[0]
         curr_len = 0
-        # TODO: different sequence limit for long model. Need to replace this with single limit
-        if "LONG" in self.model_path:
-            max_len = 300
-        else:
-            max_len = 150
+        max_len = 300
 
         while not all(stop) and curr_len <= max_len:
             relationship_logits, mlm_logits, mvrc_logits = self.vlbert(text_input_ids,
@@ -206,15 +202,12 @@ class BERTGENGenerateMT(Module):
                 if curr_len == 0:
                     generated.append([])
                 for ele in row:
-                    # try:
                     if not stop[nid]:
                         if self.tokenizer.ids_to_tokens[ele.item()] == '[STOP]':
                             stop[nid] = True
                         else:
                             generated[nid].append(
                                 self.tokenizer.ids_to_tokens[ele.item()])
-                    # except:
-                    #     generated[nid].append(self.tokenizer.ids_to_tokens[100])
             curr_len += 1
 
         # Join in sentences
@@ -248,27 +241,6 @@ class BERTGENGenerateMT(Module):
                                            mlm_labels.view(-1),
                                            ignore_index=-1)
 
-        if self.config.NETWORK.WITH_MVRC_LOSS:
-            if self.config.NETWORK.MVRC_LOSS_NORM_IN_BATCH_FIRST:
-                mvrc_loss = soft_cross_entropy(
-                    mvrc_logits.contiguous().view(-1, mvrc_logits.shape[-1]),
-                    mvrc_labels.contiguous().view(-1, mvrc_logits.shape[-1]),
-                    reduction='none').view(mvrc_logits.shape[:-1])
-                valid = (mvrc_labels.sum(-1) - 1).abs() < 1.0e-1
-                mvrc_loss = (mvrc_loss / (valid.sum(1, keepdim=True).to(dtype=mvrc_loss.dtype) + 1e-4)) \
-                    .sum() / ((valid.sum(1) != 0).sum().to(dtype=mvrc_loss.dtype) + 1e-4)
-            else:
-                mvrc_loss = soft_cross_entropy(mvrc_logits.contiguous().view(-1, mvrc_logits.shape[-1]),
-                                               mvrc_labels.contiguous().view(-1, mvrc_logits.shape[-1]))
-
-            mvrc_logits_padded = mvrc_logits.new_zeros(
-                (mvrc_logits.shape[0], origin_len, mvrc_logits.shape[2])).fill_(-10000.0)
-            mvrc_logits_padded[:, :mvrc_logits.shape[1]] = mvrc_logits
-            mvrc_logits = mvrc_logits_padded
-            mvrc_labels_padded = mvrc_labels.new_zeros(
-                (mvrc_labels.shape[0], origin_len, mvrc_labels.shape[2])).fill_(0.0)
-            mvrc_labels_padded[:, :mvrc_labels.shape[1]] = mvrc_labels
-            mvrc_labels = mvrc_labels_padded
 
         outputs.update({
             'relationship_logits': relationship_logits if self.config.NETWORK.WITH_REL_LOSS else None,

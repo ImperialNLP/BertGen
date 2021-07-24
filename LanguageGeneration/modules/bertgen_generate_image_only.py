@@ -266,28 +266,6 @@ class BERTGENGenerateImageOnly(Module):
                                            mlm_labels.view(-1),
                                            ignore_index=-1)
 
-        if self.config.NETWORK.WITH_MVRC_LOSS:
-            if self.config.NETWORK.MVRC_LOSS_NORM_IN_BATCH_FIRST:
-                mvrc_loss = soft_cross_entropy(
-                    mvrc_logits.contiguous().view(-1, mvrc_logits.shape[-1]),
-                    mvrc_labels.contiguous().view(-1, mvrc_logits.shape[-1]),
-                    reduction='none').view(mvrc_logits.shape[:-1])
-                valid = (mvrc_labels.sum(-1) - 1).abs() < 1.0e-1
-                mvrc_loss = (mvrc_loss / (valid.sum(1, keepdim=True).to(dtype=mvrc_loss.dtype) + 1e-4)) \
-                    .sum() / ((valid.sum(1) != 0).sum().to(dtype=mvrc_loss.dtype) + 1e-4)
-            else:
-                mvrc_loss = soft_cross_entropy(mvrc_logits.contiguous().view(-1, mvrc_logits.shape[-1]),
-                                               mvrc_labels.contiguous().view(-1, mvrc_logits.shape[-1]))
-
-            mvrc_logits_padded = mvrc_logits.new_zeros(
-                (mvrc_logits.shape[0], origin_len, mvrc_logits.shape[2])).fill_(-10000.0)
-            mvrc_logits_padded[:, :mvrc_logits.shape[1]] = mvrc_logits
-            mvrc_logits = mvrc_logits_padded
-            mvrc_labels_padded = mvrc_labels.new_zeros(
-                (mvrc_labels.shape[0], origin_len, mvrc_labels.shape[2])).fill_(0.0)
-            mvrc_labels_padded[:, :mvrc_labels.shape[1]] = mvrc_labels
-            mvrc_labels = mvrc_labels_padded
-
         outputs.update({
             'relationship_logits': relationship_logits if self.config.NETWORK.WITH_REL_LOSS else None,
             'relationship_label': relationship_label if self.config.NETWORK.WITH_REL_LOSS else None,
