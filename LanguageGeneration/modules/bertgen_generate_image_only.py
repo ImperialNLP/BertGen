@@ -140,10 +140,6 @@ class BERTGENGenerateImageOnly(Module):
 
         # prepare text
         text_input_ids = text
-        # print('******************')
-        # print('text: ', text)
-        # print('Shape: ', text.shape)
-        # exit()
         text_tags = text.new_zeros(text.shape)
         text_token_type_ids = text.new_zeros(text.shape)
         text_mask = (text_input_ids > 0)
@@ -174,9 +170,6 @@ class BERTGENGenerateImageOnly(Module):
                                                                        object_vl_embeddings,
                                                                        box_mask)
             # Ignore special tokens
-            # mlm_logits[:, :, 0] = -10000000
-            # mlm_logits[:, :, 2:100] = -10000000
-            # mlm_logits[:, :, 101:104] = -10000000
             answers = torch.topk(mlm_logits[mlm_labels == 103], k=1,  dim=1)
 
             # Get size of each tensor
@@ -243,8 +236,6 @@ class BERTGENGenerateImageOnly(Module):
         for sentence in generated:
             new_sentence = ' '.join(sentence)
             generated_sentences.append(new_sentence.replace(' ##', ''))
-        # print(generated_sentences)
-        # exit()
 
         ###########################################
         outputs = {}
@@ -274,9 +265,7 @@ class BERTGENGenerateImageOnly(Module):
                 mlm_loss = F.cross_entropy(mlm_logits.view((-1, mlm_logits.shape[-1])),
                                            mlm_labels.view(-1),
                                            ignore_index=-1)
-        # mvrc_loss = F.cross_entropy(mvrc_logits.contiguous().view(-1, mvrc_logits.shape[-1]),
-        #                             mvrc_labels.contiguous().view(-1),
-        #                             ignore_index=-1)
+
         if self.config.NETWORK.WITH_MVRC_LOSS:
             if self.config.NETWORK.MVRC_LOSS_NORM_IN_BATCH_FIRST:
                 mvrc_loss = soft_cross_entropy(

@@ -30,15 +30,6 @@ with open(filepath) as json_file:
     
     # json file to nested dictionary (each caption with all images)
     for p in data:
-        # print(p)
-        # total += 1
-        # if p['word_de_id'] == p['logit']:
-        #     correct += 1
-        # else:
-        # print('***********************')
-        # print('source: ', p['caption_en'])
-        # remove accents
-        # reference = unidecode.unidecode(p['caption_de'])
         if lang == "second":            
             reference = (p['caption_de'].lower())
             # convert ß to ss (equivalent in german)
@@ -51,8 +42,6 @@ with open(filepath) as json_file:
         # print('generated: ', hypothesis)
         references.append(reference)
         hypotheses.append(hypothesis)
-
-    
 
     #******************************************************
     # # Step 2: Get BLEU score
