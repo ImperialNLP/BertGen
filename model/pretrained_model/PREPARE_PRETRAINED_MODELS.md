@@ -6,10 +6,11 @@ code_root/
     └── pretrained_model/
         ├── vl-bert-base-prec.model
         ├── bert-base-multilingual-cased/
-        │   ├── vocab.txt
+        │   ├── vocab.txt (replace with BertGen vocab.txt)
         │   ├── bert_config.json
         │   └── pytorch_model.bin        
-        └── resnet101-pt-vgbua-0000.model     
+        └── resnet101-pt-vgbua-0000.model  
+        └── BertGen.model
 ```
 
 
@@ -32,3 +33,9 @@ Download following pre-trained BERT and ResNet and place them under this folder.
 * ResNet101 pretrained on Visual Genome: 
 [GoogleDrive](https://drive.google.com/file/d/1qJYtsGw1SfAyvknDZeRBnp2cF4VNjiDE/view?usp=sharing) / [BaiduPan](https://pan.baidu.com/s/1_yfZG8VqbWmp5Kr9w2DKGQ) 
 (converted from [caffe model](https://www.dropbox.com/s/wqada4qiv1dz9dk/resnet101_faster_rcnn_final.caffemodel?dl=1))
+
+## BertGen
+
+Downloaded the trained BertGen model from the links below:
+* BertGen: 
+* BertGen vocabulary: 
