@@ -129,7 +129,13 @@ increase the gradient accumulation steps accordingly to keep 'actual' batch size
     - Image Captioning:  "MODULE: BERTGENGenerateImageOnly"
 
 
+### Evaluation Metrics
 
+* After generating results, the generated text file can be compared with the ground truth in tokenised format. We have used the nmtpytoch tool for generating these metrics. An example is shown below
+
+```
+nmtpy-coco-metrics -l de "./checkpoints/generated/ENDEIMG.txt" -r "./data/ground_truths/ENDEIMG.txt.tok
+```
 
 
 

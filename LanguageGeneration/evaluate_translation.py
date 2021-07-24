@@ -18,28 +18,19 @@ lang = sys.argv[3]
 
 with open(filepath) as json_file:
     data = json.load(json_file)
-    correct = 0
-    total=0
-    captions_dict = {}
-    image_dict = {}
     references = []
     hypotheses = []
 
     #******************************************************
     # Step 1: Read json to dictionaries
-    
     # json file to nested dictionary (each caption with all images)
     for p in data:
         if lang == "second":            
             reference = (p['caption_de'].lower())
-            # convert ß to ss (equivalent in german)
-            hypothesis = p['generated_sentence'].lower()#.replace('ß','ss')
+            hypothesis = p['generated_sentence'].lower()
         else:    
             reference = (p['caption_en'].lower())
-            # convert ß to ss (equivalent in german)
-            hypothesis = p['generated_sentence'].lower()#.replace('ß','ss')
-        # print('reference: ', reference)
-        # print('generated: ', hypothesis)
+            hypothesis = p['generated_sentence'].lower()
         references.append(reference)
         hypotheses.append(hypothesis)
 
