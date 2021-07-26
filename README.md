@@ -52,7 +52,7 @@ Special thanks to VL-BERT, PyTorch and its 3rd-party libraries and BERT. This co
 
 ### Data
 
-See [PREPARE_DATA.md](data/PREPARE_DATA.md).
+The datasets used for training and evaluating BERTGEN can be found in this [zenodo link](https://zenodo.org/record/5137413/files/dataset.tar). After checking out the code repository, simply extract the `.tar.gz` file downloaded from zenodo to `<github checkout folder>/data`. A README file is included in the download with more information on the structure of the datasets.
 
 ### Pre-trained Models
 

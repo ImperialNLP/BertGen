@@ -147,6 +147,9 @@ cache
 !model/pretrained_model
 model/pretrained_model/*
 !model/pretrained_model/PREPARE_PRETRAINED_MODELS.md
+!model/pretrained_model/bert-base-multilingual-cased
+model/pretrained_model/bert-base-multilingual-cased/*
+!model/pretrained_model/bert-base-multilingual-cased/vocab.txt
 
 !data/flickr30k
 data/flickr30k/*
