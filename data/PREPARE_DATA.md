@@ -66,6 +66,11 @@ code_root/
  ```
 ## Training Data
 
+### BertGen datasets
+
+All datasets used in BertGen are stored and prepared in the link below. These can be directly downloaded and moved to the ./data/ folder.
+* [BertGen databasets](www.REPLACEWITHLINK.com)
+
 ### Multi30k
 * Multi30k dataset: [Github](https://github.com/multi30k/dataset)
 * See [README file](https://github.com/phaedonmit/VL-BERT/blob/master/data/flickr30k/README.md)

@@ -138,7 +138,6 @@ nmtpy-coco-metrics -l de "./checkpoints/generated/ENDEIMG.txt" -r "./data/ground
 ```
 
 
-
 ## Acknowledgements
 
 Many thanks to following codebases that have been essential while building this codebase:
