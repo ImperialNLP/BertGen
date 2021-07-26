@@ -175,9 +175,6 @@ class Multi30kDatasetImageOnly(Dataset):
                               dtype=np.float32).reshape((frcnn_data['num_boxes'], -1))
         boxes_cls_scores = np.frombuffer(self.b64_decode(frcnn_data['classes']),
                                          dtype=np.float32).reshape((frcnn_data['num_boxes'], -1))
-        # print('**************')
-        # print('boxes shape: ', boxes.shape)
-        # print('cls scores shape: ', boxes_cls_scores.shape)
         boxes_max_conf = boxes_cls_scores.max(axis=1)
         inds = np.argsort(boxes_max_conf)[::-1]
         boxes = boxes[inds]
@@ -373,44 +370,6 @@ class Multi30kDatasetImageOnly(Dataset):
             mvrc_labels = mvrc_labels[:box_len_keep]
 
         return image, boxes, im_info, text, relationship_label, mlm_labels, mvrc_ops, mvrc_labels
-
-    # def random_word(self, tokens):
-    #     output_label = []
-    #
-    #     for i, token in enumerate(tokens):
-    #         prob = random.random()
-    #         # mask token with 15% probability
-    #         if prob < 0.15:
-    #             prob /= 0.15
-    #
-    #             # 80% randomly change token to mask token
-    #             if prob < 0.8:
-    #                 tokens[i] = "[MASK]"
-    #
-    #             # 10% randomly change token to random token
-    #             elif prob < 0.9:
-    #                 tokens[i] = random.choice(list(self.tokenizer.vocab.items()))[0]
-    #
-    #             # -> rest 10% randomly keep current token
-    #
-    #             # append current token to output (we will predict these later)
-    #             try:
-    #                 output_label.append(self.tokenizer.vocab[token])
-    #             except KeyError:
-    #                 # For unknown words (should not occur with BPE vocab)
-    #                 output_label.append(self.tokenizer.vocab["[UNK]"])
-    #                 logging.warning("Cannot find token '{}' in vocab. Using [UNK] insetad".format(token))
-    #         else:
-    #             # no masking token (will be ignored by loss function later)
-    #             output_label.append(-1)
-    #
-    #     # if no word masked, random choose a word to mask
-    #     if self.force_mask:
-    #         if all([l_ == -1 for l_ in output_label]):
-    #             choosed = random.randrange(0, len(output_label))
-    #             output_label[choosed] = self.tokenizer.vocab[tokens[choosed]]
-    #
-    #     return tokens, output_label
 
     def random_word_wwm(self, tokens):
         output_tokens = []
