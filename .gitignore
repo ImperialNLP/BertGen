@@ -161,5 +161,5 @@ data/flickr30k/*
 !data/flickr30k/*.fr
 !data/flickr30k/*.en
 !data/flickr30k/*.de
-
+!LanguageGeneration/data/*
 
